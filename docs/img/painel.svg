@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" role="img" aria-label="Ilustração do InfraHub com dados fictícios: menu de categorias, cartões de situação e lista de sistemas">
+  <style>
+    text { font-family: "Segoe UI", system-ui, Arial, sans-serif; fill: #16202f; font-size: 14px; }
+    .w { fill: #fff; } .m { fill: #4b5870; font-size: 12px; } .b { font-weight: 700; } .host { font-family: Consolas, monospace; fill: #2563eb; font-size: 12px; }
+    .row { fill: #fff; stroke: #dde2ea; }
+  </style>
+  <rect width="1100" height="640" fill="#f3f5f9"/>
+  <rect width="1100" height="64" fill="#1e2a44"/><rect y="64" width="1100" height="4" fill="#2563eb"/>
+  <rect x="24" y="14" width="36" height="36" rx="9" fill="#131b2e"/><circle cx="42" cy="32" r="7" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+  <text class="b" x="72" y="30" style="font-size:17px;fill:#fff">Exemplo Org · InfraHub</text><text x="72" y="48" style="fill:#cbd5e1;font-size:11px">Infraestrutura de rede, servidores e sistemas</text>
+  <rect x="380" y="16" width="260" height="32" rx="8" fill="#ffffff" fill-opacity="0.12"/><text x="394" y="37" style="fill:#cbd5e1;font-size:12px">Buscar por nome, IP, tag…</text>
+  <rect x="700" y="18" width="110" height="28" rx="14" fill="#fff"/><text class="b" x="716" y="37" style="fill:#1e2a44;font-size:12px">Dispositivos</text>
+  <text x="830" y="37" style="fill:#cbd5e1;font-size:12px">Inventário IP   Painel</text>
+
+  <g transform="translate(24 96)">
+    <text class="m b" y="0">CATEGORIAS</text>
+    <rect y="10" width="190" height="34" rx="6" fill="#eef3fc"/><rect y="10" width="4" height="34" fill="#2563eb"/><text class="b" x="16" y="32">Todos</text><text class="m" x="168" y="32">5</text>
+    <text x="16" y="70">Rede</text><text class="m" x="168" y="70">1</text>
+    <text x="16" y="102">Servidores</text><text class="m" x="168" y="102">1</text>
+    <text x="16" y="134">Nobreaks (UPS)</text><text class="m" x="168" y="134">1</text>
+    <text x="16" y="166">Câmeras / NVR</text><text class="m" x="168" y="166">1</text>
+    <text x="16" y="198">Aplicações</text><text class="m" x="168" y="198">1</text>
+  </g>
+
+  <g transform="translate(250 96)">
+    <rect width="250" height="104" rx="8" class="w" stroke="#dde2ea"/><rect width="4" height="104" fill="#16a34a"/>
+    <circle cx="22" cy="22" r="5" fill="#16a34a"/><text class="m b" x="36" y="26">NO AR</text><text x="20" y="68" style="font-size:36px;font-weight:700;fill:#16a34a">4</text><text class="m" x="20" y="90">80% dos sistemas</text>
+    <rect x="130" y="60" width="100" height="6" rx="3" fill="#e4e9f2"/><rect x="130" y="60" width="80" height="6" rx="3" fill="#16a34a"/>
+    <g transform="translate(270 0)"><rect width="250" height="104" rx="8" fill="#fdecee" stroke="#f3b9bf"/><rect width="4" height="104" fill="#dc2626"/>
+    <circle cx="22" cy="22" r="5" fill="#dc2626"/><text class="m b" x="36" y="26">FORA DO AR</text><text x="20" y="68" style="font-size:36px;font-weight:700;fill:#dc2626">1</text><text x="20" y="90" style="fill:#8a1c27;font-size:12px">a porta não respondeu</text></g>
+    <g transform="translate(540 0)"><rect width="250" height="104" rx="8" class="w" stroke="#dde2ea"/><rect width="4" height="104" fill="#1e2a44"/>
+    <circle cx="22" cy="22" r="5" fill="#1e2a44"/><text class="m b" x="36" y="26">SISTEMAS</text><text x="20" y="68" style="font-size:36px;font-weight:700;fill:#1e2a44">5</text><text class="m" x="20" y="90">5 categorias</text></g>
+  </g>
+
+  <g transform="translate(250 226)">
+    <text class="b" y="0" style="font-size:15px">Servidores</text>
+    <rect y="12" width="790" height="56" class="row" rx="6"/><rect y="12" width="4" height="56" fill="#0ea5e9"/>
+    <circle cx="26" cy="40" r="5" fill="#16a34a"/><rect x="42" y="26" width="28" height="28" rx="6" fill="#e4e9f2"/><text class="b" x="84" y="36">Servidor de arquivos</text><text class="m" x="84" y="54">Exemplo: console do servidor, com acesso RDP</text>
+    <text class="host" x="540" y="45">192.0.2.10:8006</text><rect x="690" y="28" width="78" height="26" rx="6" fill="#eef3fc" stroke="#c2c9d4"/><text x="716" y="46" style="font-size:12px">RDP</text>
+    <text class="b" y="108" style="font-size:15px">Rede</text>
+    <rect y="120" width="790" height="56" class="row" rx="6"/><rect y="120" width="4" height="56" fill="#3b82f6"/>
+    <circle cx="26" cy="148" r="5" fill="#16a34a"/><rect x="42" y="134" width="28" height="28" rx="6" fill="#e4e9f2"/><text class="b" x="84" y="144">Switch principal</text><text class="m" x="84" y="162">Exemplo: interface web do switch do rack</text>
+    <text class="host" x="540" y="153">192.0.2.2</text>
+    <text class="b" y="216" style="font-size:15px">Câmeras / NVR</text>
+    <rect y="228" width="790" height="56" class="row" rx="6"/><rect y="228" width="4" height="56" fill="#14b8a6"/>
+    <circle cx="26" cy="256" r="5" fill="#dc2626"/><rect x="42" y="242" width="28" height="28" rx="6" fill="#e4e9f2"/><text class="b" x="84" y="252">Gravador de câmeras</text><text class="m" x="84" y="270">Exemplo: NVR das câmeras</text>
+    <text class="host" x="540" y="261">192.0.2.40</text>
+  </g>
+  <text class="m" x="250" y="620">Ilustração com dados fictícios (192.0.2.0/24 é faixa reservada para documentação).</text>
+</svg>

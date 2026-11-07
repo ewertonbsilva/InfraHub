@@ -1,0 +1,3 @@
+Coloque aqui imagens .png/.svg dos seus sistemas e use no modo Admin como: icons/meu-sistema.svg
+Também vale uma URL completa (https://...) no campo de ícone. Se não houver ícone, o InfraHub tenta o favicon do próprio sistema.
+nobreak.svg e camera.svg são desenhos próprios do projeto (MIT). Não coloque logotipos de terceiros neste repositório sem checar a licença.

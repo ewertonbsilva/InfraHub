@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.git
+.github
+.env
+data/*
+!data/.gitkeep
+docs
+test
+*.md

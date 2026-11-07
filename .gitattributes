@@ -1,0 +1,4 @@
+# Texto sempre com LF (Linux/Docker); scripts do Windows (registro/PowerShell) sempre com CRLF
+* text=auto eol=lf
+public/rdp/* text eol=crlf
+*.png binary

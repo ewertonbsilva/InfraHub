@@ -1,0 +1,24 @@
+{
+  "name": "infrahub",
+  "version": "1.0.0",
+  "description": "Portal de acesso à infraestrutura: links dos sistemas com status ao vivo, inventário de IPs, painéis embutidos e login por LDAP ou usuários locais",
+  "license": "MIT",
+  "main": "server.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/auth.test.mjs",
+    "hash-senha": "node scripts/hash-senha.mjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ldapts": "^9.2.0"
+  },
+  "overrides": {
+    "qs": "^6.17.1"
+  }
+}

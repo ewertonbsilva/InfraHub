@@ -1,0 +1,17 @@
+services:
+  infrahub:
+    build: .
+    image: infrahub:latest
+    container_name: infrahub
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "5010:3000"
+      # Portas de embed (só se usar EMBED_PROXIES no .env; elas NÃO pedem login):
+      # - "5011:3001"
+      # - "5012:3002"
+    volumes:
+      # Links, categorias, inventário e o segredo de sessão. Pasta precisa pertencer ao uid 1000: chown 1000:1000 data
+      - ./data:/app/data
+      # Se o seu LDAP usa uma autoridade própria, monte o certificado e aponte LDAP_CA para /app/ldap/ca.pem:
+      # - ./ldap/ca.pem:/app/ldap/ca.pem:ro

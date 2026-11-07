@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <!-- Fundo da tela de login do InfraHub: ícones de linha translúcidos (infraestrutura de TI) -->
+  <g fill="#fff" fill-opacity="0.045" stroke="#fff" stroke-opacity="0.2" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- servidor em rack (3 unidades com luzes e fendas) -->
+    <g transform="translate(250 205) rotate(-8)">
+      <rect x="-120" y="-135" width="240" height="64" rx="12"/>
+      <rect x="-120" y="-52" width="240" height="64" rx="12"/>
+      <rect x="-120" y="31" width="240" height="64" rx="12"/>
+      <circle cx="-88" cy="-103" r="7"/><circle cx="-88" cy="-20" r="7"/><circle cx="-88" cy="63" r="7"/>
+      <path d="M-52 -103 H88 M-52 -20 H88 M-52 63 H88" fill="none" stroke-width="6"/>
+      <path d="M-70 95 V128 M70 95 V128 M-100 128 H100" fill="none"/>
+    </g>
+
+    <!-- switch de rede com portas e cabos -->
+    <g transform="translate(1335 215) rotate(7)">
+      <rect x="-150" y="-62" width="300" height="124" rx="16"/>
+      <g fill="none" stroke-width="5">
+        <rect x="-122" y="-30" width="30" height="26" rx="4"/><rect x="-80" y="-30" width="30" height="26" rx="4"/>
+        <rect x="-38" y="-30" width="30" height="26" rx="4"/><rect x="4" y="-30" width="30" height="26" rx="4"/>
+        <rect x="46" y="-30" width="30" height="26" rx="4"/><rect x="88" y="-30" width="30" height="26" rx="4"/>
+        <rect x="-122" y="12" width="30" height="26" rx="4"/><rect x="-80" y="12" width="30" height="26" rx="4"/>
+        <rect x="-38" y="12" width="30" height="26" rx="4"/><rect x="4" y="12" width="30" height="26" rx="4"/>
+        <path d="M-107 -4 V30 M-65 -4 V22 M-23 -4 V22 M19 -4 V22" stroke-opacity="0.1" stroke-width="6"/>
+      </g>
+      <path d="M-107 38 C-107 100 -60 110 -60 150 M19 38 C19 100 70 108 70 150" fill="none" stroke-opacity="0.12"/>
+    </g>
+
+    <!-- topologia de rede (nós ligados ao núcleo) -->
+    <g transform="translate(330 720) rotate(6)">
+      <g fill="none">
+        <path d="M0 0 L-120 -66 M0 0 L110 -74 M0 0 L-92 78 M0 0 L118 64"/>
+        <path d="M-120 -66 L110 -74 L118 64 L-92 78 Z" stroke-opacity="0.11"/>
+      </g>
+      <circle cx="0" cy="0" r="24"/>
+      <rect x="-142" y="-86" width="44" height="40" rx="8"/>
+      <rect x="88" y="-94" width="44" height="40" rx="8"/>
+      <rect x="-114" y="58" width="44" height="40" rx="8"/>
+      <rect x="96" y="44" width="44" height="40" rx="8"/>
+    </g>
+
+    <!-- monitor com gráfico de monitoramento -->
+    <g transform="translate(1290 705) rotate(-6)">
+      <rect x="-135" y="-100" width="270" height="170" rx="16"/>
+      <path d="M-92 36 L-52 -6 L-16 20 L34 -46 L70 -14 L98 -50" fill="none" stroke-width="7"/>
+      <path d="M-100 -68 H-60" fill="none" stroke-width="6"/>
+      <path d="M-40 70 V112 M40 70 V112 M-86 112 H86" fill="none"/>
+    </g>
+
+    <!-- nuvem pequena, topo -->
+    <g transform="translate(820 100) rotate(3) scale(0.5)">
+      <path d="M-120 60 A62 62 0 0 1 -92 -56 A92 92 0 0 1 86 -50 A66 66 0 0 1 112 60 Z" stroke-width="8"/>
+      <path d="M-50 4 H50 M0 -34 V42" fill="none" stroke-width="10"/>
+    </g>
+
+    <!-- pontos de ligação dispersos -->
+    <g fill="#fff" fill-opacity="0.13" stroke="none">
+      <circle cx="520" cy="90" r="6"/><circle cx="640" cy="170" r="4"/><circle cx="1010" cy="140" r="5"/>
+      <circle cx="140" cy="470" r="5"/><circle cx="1470" cy="470" r="6"/><circle cx="560" cy="820" r="5"/>
+      <circle cx="1040" cy="800" r="4"/><circle cx="90" cy="650" r="4"/>
+    </g>
+    <g fill="none" stroke-opacity="0.12" stroke-dasharray="3 14" stroke-width="4">
+      <path d="M520 90 L640 170 L820 100"/><path d="M1010 140 L820 100"/><path d="M560 820 L1040 800"/>
+    </g>
+  </g>
+</svg>

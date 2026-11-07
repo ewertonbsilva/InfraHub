@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="Arquitetura do InfraHub: navegador, servidor Node.js, arquivos JSON, LDAP, sistemas monitorados e painéis embutidos">
+  <style>
+    text { font-family: "Segoe UI", system-ui, Arial, sans-serif; fill: #16202f; }
+    .t { font-size: 17px; font-weight: 700; } .s { font-size: 13px; fill: #4b5870; } .l { font-size: 12px; fill: #2563eb; font-weight: 600; }
+    .box { fill: #ffffff; stroke: #1e2a44; stroke-width: 2; } .main { fill: #1e2a44; }
+    .ln { stroke: #2563eb; stroke-width: 2.5; fill: none; marker-end: url(#a); } .dash { stroke-dasharray: 6 5; }
+  </style>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2563eb"/></marker></defs>
+  <rect width="1000" height="420" fill="#f3f5f9"/>
+
+  <rect class="box" x="30" y="170" width="190" height="80" rx="12"/>
+  <text class="t" x="125" y="205" text-anchor="middle">Navegador</text><text class="s" x="125" y="228" text-anchor="middle">HTML + JavaScript puro</text>
+
+  <rect class="main" x="330" y="140" width="250" height="140" rx="14"/>
+  <text x="455" y="178" text-anchor="middle" font-size="17" font-weight="700" style="fill:#fff">Servidor InfraHub</text>
+  <text x="455" y="204" text-anchor="middle" font-size="13" style="fill:#cbd5e1">Node.js + Express</text>
+  <text x="455" y="228" text-anchor="middle" font-size="13" style="fill:#cbd5e1">sessão · API · checagem de status</text>
+  <text x="455" y="250" text-anchor="middle" font-size="13" style="fill:#cbd5e1">proxies de embed (opcional)</text>
+
+  <rect class="box" x="330" y="330" width="250" height="64" rx="12"/>
+  <text class="t" x="455" y="358" text-anchor="middle">data/*.json</text><text class="s" x="455" y="378" text-anchor="middle">links, IPs, painéis, segredo</text>
+
+  <rect class="box" x="330" y="26" width="250" height="64" rx="12"/>
+  <text class="t" x="455" y="54" text-anchor="middle">LDAP / LDAPS</text><text class="s" x="455" y="74" text-anchor="middle">ou usuários locais (scrypt)</text>
+
+  <rect class="box" x="720" y="26" width="250" height="76" rx="12"/>
+  <text class="t" x="845" y="55" text-anchor="middle">Seus sistemas</text><text class="s" x="845" y="76" text-anchor="middle">porta TCP aberta = no ar</text>
+
+  <rect class="box" x="720" y="150" width="250" height="76" rx="12"/>
+  <text class="t" x="845" y="179" text-anchor="middle">Hosts do inventário</text><text class="s" x="845" y="200" text-anchor="middle">ping ICMP</text>
+
+  <rect class="box" x="720" y="274" width="250" height="76" rx="12"/>
+  <text class="t" x="845" y="303" text-anchor="middle">Painéis e Uptime Kuma</text><text class="s" x="845" y="324" text-anchor="middle">iframe via proxy · API de status</text>
+
+  <path class="ln" d="M222 210 H328"/><text class="l" x="275" y="200" text-anchor="middle">HTTPS</text>
+  <path class="ln" d="M455 138 V92"/><text class="l" x="468" y="118">login</text>
+  <path class="ln" d="M455 282 V328"/><text class="l" x="468" y="312">lê / grava</text>
+  <path class="ln" d="M582 165 L718 70"/>
+  <path class="ln" d="M582 210 H718"/>
+  <path class="ln dash" d="M582 255 L718 312"/>
+</svg>

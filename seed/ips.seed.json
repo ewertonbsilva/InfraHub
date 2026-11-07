@@ -1,0 +1,31 @@
+{
+  "network": "192.0.2",
+  "hosts": [
+    {
+      "n": 1,
+      "hostname": "Gateway",
+      "note": "Exemplo"
+    },
+    {
+      "n": 2,
+      "hostname": "Switch principal",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "hostname": "SRV-ARQUIVOS",
+      "note": "",
+      "rdp": "192.0.2.10"
+    },
+    {
+      "n": 30,
+      "hostname": "Nobreak do rack",
+      "note": ""
+    },
+    {
+      "n": 40,
+      "hostname": "NVR",
+      "note": ""
+    }
+  ]
+}

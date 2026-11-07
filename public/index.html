@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InfraHub</title>
+  <meta name="theme-color" content="#1e2a44" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="ih-corpo">
+  <!-- Tela de entrada -->
+  <div id="gate" class="gate ih-login">
+    <main class="ih-login-cartao">
+      <img class="ih-login-logo" src="logo.svg" alt="Logotipo do InfraHub" />
+      <h1 id="loginNome" class="ih-login-nome">InfraHub</h1>
+      <p class="ih-login-aviso">Entre com seu usuário e senha.</p>
+      <p id="gateError" class="ih-erro hidden" role="alert"></p>
+      <form id="gateForm" autocomplete="on">
+        <label class="ih-rotulo" for="gateUser">Usuário</label>
+        <input id="gateUser" class="ih-campo" name="usuario" type="text" autocomplete="username" autocapitalize="none" autofocus required maxlength="64" />
+        <label class="ih-rotulo" for="gatePassword">Senha</label>
+        <input id="gatePassword" class="ih-campo" name="senha" type="password" autocomplete="current-password" required maxlength="256" />
+        <label class="ih-lembrar"><input id="gateRemember" name="lembrar" type="checkbox" /> Lembrar de mim neste computador</label>
+        <button id="gateSubmit" class="ih-btn" type="submit">Entrar</button>
+      </form>
+    </main>
+    <p class="ih-login-rodape">Acesso restrito à equipe autorizada</p>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img class="logo" src="logo.svg" alt="Logotipo do InfraHub" />
+      <div>
+        <h1 id="topNome">InfraHub</h1>
+        <span class="subtitle">Infraestrutura de rede, servidores e sistemas</span>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input id="search" type="text" name="infrahub-filter" placeholder="Buscar por nome, IP, tag, descrição…"
+             autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+             data-form-type="other" data-lpignore="true" data-1p-ignore
+             readonly />
+    </div>
+    <div class="actions">
+      <div class="mode-toggle">
+        <button data-mode="cards" class="active">🗂️ Dispositivos</button>
+        <button data-mode="ips">📇 Inventário IP</button>
+        <button data-mode="dash">📊 Painel</button>
+        <button data-mode="links">🔗 Links</button>
+      </div>
+      <button id="editBtn" class="btn-admin" title="Ativar modo de edição">🔧 Admin</button>
+      <button id="catBtn" class="btn-admin admin-only" title="Gerenciar categorias">🗂️ Categorias</button>
+      <span id="userName" class="ih-topo-usuario"></span>
+      <button id="logoutBtn" class="btn-admin">Sair</button>
+    </div>
+  </header>
+  <div class="accent-bar"></div>
+
+  <div class="layout">
+    <nav id="filters" class="filters" aria-label="Categorias"></nav>
+    <div class="main">
+      <section id="statsBar" class="stats-bar" aria-label="Situação dos sistemas"></section>
+      <main id="content" class="content"></main>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span id="stats"></span>
+    <span>InfraHub · clique em um sistema para abrir em nova aba</span>
+  </footer>
+
+  <!-- Modal de editar/adicionar link -->
+  <div id="linkModal" class="modal hidden">
+    <div class="modal-card">
+      <h2 id="linkModalTitle">Novo link</h2>
+      <label>Nome <input id="f-name" type="text" placeholder="Ex.: Switch core do rack" /></label>
+      <label>URL <input id="f-url" type="text" placeholder="https://192.0.2.10/" /></label>
+      <label>Categoria <select id="f-category"></select></label>
+      <label>Ícone (URL da imagem) <input id="f-icon" type="text" placeholder="Opcional — deixe vazio p/ usar o favicon do sistema" /></label>
+      <label>Descrição <input id="f-description" type="text" placeholder="Opcional" /></label>
+      <label>Tags (separadas por vírgula) <input id="f-tags" type="text" placeholder="ex.: core, rack-1" /></label>
+      <label>RDP (host/IP, opcional) <input id="f-rdp" type="text" placeholder="Ex.: 192.0.2.26 — mostra o botão 🖥️ RDP" autocomplete="off" /></label>
+      <div id="linkError" class="error hidden"></div>
+      <div class="modal-actions">
+        <button class="btn-ghost" data-close>Cancelar</button>
+        <button id="linkSubmit" class="btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de painel (dashboard) -->
+  <div id="dashModal" class="modal hidden">
+    <div class="modal-card">
+      <h2 id="dashModalTitle">Novo painel</h2>
+      <label>Nome <input id="d-name" type="text" placeholder="Ex.: Beszel" /></label>
+      <label>URL <input id="d-url" type="text" placeholder="http://192.0.2.20:8090/" /></label>
+      <div id="dashError" class="error hidden"></div>
+      <div class="modal-actions">
+        <button class="btn-ghost" data-close>Cancelar</button>
+        <button id="dashSubmit" class="btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de adicionar IP -->
+  <div id="ipModal" class="modal hidden">
+    <div class="modal-card">
+      <h2>➕ Adicionar IP</h2>
+      <label>Último octeto (1–254) <input id="ip-n" type="number" min="1" max="254" placeholder="Ex.: 80" /></label>
+      <label>Host / Equipamento <input id="ip-host" type="text" placeholder="Ex.: SRV-NOVO" /></label>
+      <label>Observação <input id="ip-note" type="text" placeholder="Opcional" /></label>
+      <label class="chk-label"><input id="ip-rdp" type="checkbox" /> Tem acesso RDP (mostra o botão 🖥️ RDP)</label>
+      <div id="ipError" class="error hidden"></div>
+      <div class="modal-actions">
+        <button class="btn-ghost" data-close>Cancelar</button>
+        <button id="ipSubmit" class="btn-primary">Adicionar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de gerenciar categorias -->
+  <div id="catModal" class="modal hidden">
+    <div class="modal-card wide">
+      <h2>🗂️ Gerenciar categorias</h2>
+      <p class="muted">Edite, exclua ou adicione categorias. Não é possível excluir categorias que ainda têm links.</p>
+      <div id="catList" class="cat-list"></div>
+      <hr class="sep" />
+      <h3 class="form-title">Nova categoria</h3>
+      <div class="cat-form">
+        <input id="c-icon" type="text" maxlength="2" placeholder="📁" title="Ícone/emoji" />
+        <input id="c-name" type="text" placeholder="Nome da categoria" />
+        <input id="c-color" type="color" value="#c01722" title="Cor" />
+        <button id="catAdd" class="btn-primary">Adicionar</button>
+      </div>
+      <div id="catError" class="error hidden"></div>
+      <div class="modal-actions">
+        <button class="btn-ghost" data-close>Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

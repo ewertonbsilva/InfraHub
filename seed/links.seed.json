@@ -1,0 +1,90 @@
+{
+  "categories": [
+    {
+      "id": "rede",
+      "name": "Rede",
+      "icon": "🔀",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "servidor",
+      "name": "Servidores",
+      "icon": "🖥️",
+      "color": "#0ea5e9"
+    },
+    {
+      "id": "nobreak",
+      "name": "Nobreaks (UPS)",
+      "icon": "🔋",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "cameras",
+      "name": "Câmeras / NVR",
+      "icon": "📹",
+      "color": "#14b8a6"
+    },
+    {
+      "id": "app",
+      "name": "Aplicações",
+      "icon": "🧩",
+      "color": "#64748b"
+    }
+  ],
+  "links": [
+    {
+      "id": "ex-01",
+      "name": "Switch principal",
+      "url": "https://192.0.2.2/",
+      "category": "rede",
+      "description": "Exemplo: interface web do switch do rack",
+      "tags": [
+        "core",
+        "exemplo"
+      ]
+    },
+    {
+      "id": "ex-02",
+      "name": "Servidor de arquivos",
+      "url": "https://192.0.2.10:8006/",
+      "category": "servidor",
+      "description": "Exemplo: console do servidor, com acesso RDP",
+      "tags": [
+        "exemplo"
+      ],
+      "rdp": "192.0.2.10"
+    },
+    {
+      "id": "ex-03",
+      "name": "Nobreak do rack",
+      "url": "http://192.0.2.30/",
+      "category": "nobreak",
+      "description": "Exemplo: painel do nobreak",
+      "tags": [
+        "exemplo"
+      ],
+      "icon": "icons/nobreak.svg"
+    },
+    {
+      "id": "ex-04",
+      "name": "Gravador de câmeras",
+      "url": "http://192.0.2.40/",
+      "category": "cameras",
+      "description": "Exemplo: NVR das câmeras",
+      "tags": [
+        "exemplo"
+      ],
+      "icon": "icons/camera.svg"
+    },
+    {
+      "id": "ex-05",
+      "name": "Wiki da equipe",
+      "url": "https://wiki.exemplo.com/",
+      "category": "app",
+      "description": "Exemplo: sistema interno",
+      "tags": [
+        "exemplo"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+/* ==========================================================================
+   base.css · Base visual do InfraHub (tokens e componentes)
+   Tudo usa o prefixo ih- para não colidir com o CSS do sistema que adotar este arquivo.
+   ========================================================================== */
+
+/* ---- 1. Tokens (use SEMPRE as variáveis; nunca copie o valor hexadecimal) ---- */
+:root {
+    /* identidade */
+    --ih-base: #1e2a44;          /* estrutura: títulos, meio do gradiente */
+    --ih-base-esc: #131b2e;      /* começo do gradiente, texto principal */
+    --ih-base-claro: #2f4470;    /* fim do gradiente */
+    --ih-destaque: #2563eb;       /* ação e destaque: botão, faixas, foco */
+    --ih-destaque-esc: #1d4ed8;   /* hover do botão, gráficos, texto de destaque */
+
+    /* neutros */
+    --ih-texto: #131b2e;
+    --ih-suave: #5f6368;          /* texto de apoio */
+    --ih-fundo: #f3f5f9;          /* fundo da página */
+    --ih-cartao: #ffffff;
+    --ih-borda: #dde2ea;
+    --ih-campo: #c2c9d4;          /* borda de campos */
+    --ih-hover: #eef3fc;          /* linha/aba em hover */
+    --ih-trilho: #e4e9f2;         /* fundo de barras e vazios */
+    --ih-pilula: #e6eaf2;
+
+    /* mensagens */
+    --ih-erro-fundo: #fdecee;
+    --ih-erro-borda: #f3b9bf;
+    --ih-erro-texto: #8a1c27;
+
+    /* código */
+    --ih-codigo-fundo: #eef1f6;
+    --ih-pre-fundo: #131b2e;
+    --ih-pre-texto: #e6ebf5;
+
+    /* forma */
+    --ih-raio-p: 4px;
+    --ih-raio-m: 6px;             /* campos e botões */
+    --ih-raio-g: 8px;             /* cartões e indicadores */
+    --ih-raio-xg: 10px;           /* cartão de login */
+    --ih-sombra-cartao: 0 14px 40px rgba(0, 0, 0, 0.35);
+    --ih-sombra-balao: 0 10px 30px rgba(19, 27, 46, 0.35);
+    --ih-halo: 0 0 0 2px rgba(37, 99, 235, 0.18);
+
+    /* tipografia */
+    --ih-fonte: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    --ih-mono: Consolas, "SF Mono", monospace;
+}
+
+/* ---- 2. Base ---- */
+.ih-corpo { margin: 0; font-family: var(--ih-fonte); color: var(--ih-texto); background: var(--ih-fundo); }
+.ih-corpo *, .ih-corpo *::before, .ih-corpo *::after { box-sizing: border-box; }
+.ih-corpo [hidden] { display: none !important; }
+.ih-num { font-variant-numeric: tabular-nums; }
+.ih-mono { font-family: var(--ih-mono); }
+.ih-suave { color: var(--ih-suave); }
+
+/* ---- 3. Cabeçalho da aplicação ---- */
+.ih-topo {
+    display: flex; align-items: center; gap: 14px; padding: 10px 22px; color: #fff;
+    background: linear-gradient(135deg, var(--ih-base-esc) 0%, var(--ih-base) 55%, var(--ih-base-claro) 100%);
+    border-bottom: 4px solid var(--ih-destaque);
+}
+.ih-topo-logo { width: 42px; height: 40px; object-fit: contain; }
+.ih-topo-tit { display: flex; flex-direction: column; line-height: 1.2; }
+.ih-topo-tit strong { font-size: 1.05em; }
+.ih-topo-tit span { font-size: 0.78em; opacity: 0.75; }
+.ih-topo-dir { margin-left: auto; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.ih-topo-usuario { font-size: 0.88em; opacity: 0.9; }
+.ih-btn-claro {  /* botão sobre o fundo escuro (ex.: Sair) */
+    background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.5); border-radius: var(--ih-raio-m);
+    padding: 5px 14px; cursor: pointer; font: inherit;
+}
+.ih-btn-claro:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* ---- 4. Navegação por abas ---- */
+.ih-abas { display: flex; gap: 4px; flex-wrap: wrap; padding: 10px 22px 0; background: var(--ih-cartao); border-bottom: 1px solid var(--ih-borda); }
+.ih-abas button {
+    background: transparent; border: 0; border-bottom: 3px solid transparent; padding: 9px 14px; margin-bottom: -1px;
+    font: inherit; font-size: 0.92em; color: var(--ih-suave); cursor: pointer; border-radius: var(--ih-raio-m) var(--ih-raio-m) 0 0;
+}
+.ih-abas button:hover { background: var(--ih-hover); color: var(--ih-base); }
+.ih-abas button.ih-ativa { color: var(--ih-base); font-weight: 700; border-bottom-color: var(--ih-destaque); }
+
+/* ---- 5. Página, grade e cartões ---- */
+.ih-pagina { max-width: 1280px; margin: 18px auto; padding: 0 16px; display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ih-larg { grid-column: 1 / -1; }
+.ih-cartao { background: var(--ih-cartao); border: 1px solid var(--ih-borda); border-radius: var(--ih-raio-g); padding: 14px 16px; min-width: 0; }
+.ih-cartao h2 { margin: 0 0 10px; font-size: 0.95em; color: var(--ih-base); }
+.ih-cartao h2 small { color: var(--ih-suave); font-weight: 400; margin-left: 6px; }
+.ih-rodape { text-align: center; color: var(--ih-suave); font-size: 0.78em; padding: 6px 0 22px; }
+
+/* ---- 6. Indicadores (KPI) ---- */
+.ih-kpis { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.ih-kpi { background: var(--ih-cartao); border: 1px solid var(--ih-borda); border-left: 4px solid var(--ih-destaque); border-radius: var(--ih-raio-g); padding: 12px 14px; }
+.ih-kpi-valor { font-size: 1.9em; font-weight: 700; color: var(--ih-base); font-variant-numeric: tabular-nums; }
+.ih-kpi-valor.ih-texto { font-size: 1.05em; line-height: 1.3; overflow-wrap: anywhere; }
+.ih-kpi-rotulo { font-size: 0.8em; color: var(--ih-suave); }
+
+/* ---- 7. Botões, campos e filtros ---- */
+.ih-btn {
+    display: inline-block; background: var(--ih-destaque); color: #fff; border: 1px solid var(--ih-destaque-esc);
+    border-radius: var(--ih-raio-m); padding: 8px 14px; font: inherit; font-size: 0.9em; font-weight: 600; cursor: pointer; text-decoration: none;
+}
+.ih-btn:hover { background: var(--ih-destaque-esc); }
+.ih-btn-sec { background: #fff; color: var(--ih-base); border-color: var(--ih-campo); }
+.ih-btn-sec:hover { background: var(--ih-hover); }
+.ih-btn:focus-visible, .ih-abas button:focus-visible { outline: 2px solid rgba(37, 99, 235, 0.55); outline-offset: 2px; }
+.ih-rotulo { display: block; font-size: 0.82em; color: var(--ih-suave); margin: 10px 0 4px; }
+.ih-campo, .ih-select {
+    width: 100%; padding: 9px 10px; border: 1px solid var(--ih-campo); border-radius: var(--ih-raio-m); font: inherit; background: #fff; color: var(--ih-texto);
+}
+.ih-campo:focus, .ih-select:focus { border-color: var(--ih-destaque); box-shadow: var(--ih-halo); outline: none; }
+.ih-filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
+.ih-filtros .ih-campo { flex: 1 1 260px; width: auto; }
+.ih-filtros .ih-select { width: auto; max-width: 100%; }
+
+/* ---- 8. Tabelas ---- */
+.ih-rolagem { overflow: auto; max-height: 360px; }
+.ih-tabela { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+.ih-tabela th { text-align: left; color: var(--ih-suave); font-weight: 600; padding: 6px 8px; border-bottom: 1px solid var(--ih-borda); position: sticky; top: 0; background: var(--ih-cartao); }
+.ih-tabela th.ih-ord { cursor: pointer; user-select: none; }
+.ih-tabela th.ih-ord:hover { color: var(--ih-destaque-esc); }
+.ih-tabela td { padding: 6px 8px; border-bottom: 1px solid #f2eaec; white-space: nowrap; }
+.ih-tabela .ih-d { text-align: right; font-variant-numeric: tabular-nums; }       /* números: à direita */
+.ih-tabela .ih-ip { font-family: var(--ih-mono); }                               /* IP, código, caminho */
+.ih-tabela .ih-quebra { white-space: normal; overflow-wrap: anywhere; min-width: 220px; }
+.ih-tabela tr.ih-clicavel { cursor: pointer; }
+.ih-tabela tr.ih-clicavel:hover td { background: var(--ih-hover); }
+.ih-vazio { color: var(--ih-suave); padding: 14px 8px; font-size: 0.88em; }
+
+/* ---- 9. Gráficos simples ---- */
+.ih-barras .ih-linha { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) 44px; align-items: center; gap: 8px; font-size: 0.82em; padding: 3px 0; }
+.ih-barras .ih-nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ih-barras .ih-trilho { background: var(--ih-trilho); border-radius: var(--ih-raio-p); height: 10px; overflow: hidden; }
+.ih-barras .ih-preench { background: var(--ih-destaque-esc); height: 100%; border-radius: var(--ih-raio-p); }
+.ih-barras .ih-n { text-align: right; font-variant-numeric: tabular-nums; color: var(--ih-suave); }
+
+/* ---- 10. Pílulas, mensagens e código ---- */
+.ih-pilula { display: inline-block; background: var(--ih-pilula); color: var(--ih-suave); border-radius: 10px; padding: 0 8px; font-size: 0.82em; }
+.ih-erro { background: var(--ih-erro-fundo); border: 1px solid var(--ih-erro-borda); color: var(--ih-erro-texto); border-radius: var(--ih-raio-m); padding: 8px 10px; font-size: 0.88em; }
+.ih-nota { color: var(--ih-suave); font-size: 0.84em; margin: 4px 0 8px; }
+.ih-cod { background: var(--ih-codigo-fundo); padding: 1px 5px; border-radius: var(--ih-raio-p); font: 0.9em var(--ih-mono); }
+.ih-pre { background: var(--ih-pre-fundo); color: var(--ih-pre-texto); border-radius: var(--ih-raio-m); padding: 10px 12px; overflow: auto; font: 0.8em/1.45 var(--ih-mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* ---- 11. Janela (modal) e balão ---- */
+.ih-modal { position: fixed; inset: 0; z-index: 10; background: rgba(19, 27, 46, 0.6); display: flex; align-items: flex-start; justify-content: center; padding: 4vh 14px; overflow-y: auto; }
+.ih-caixa { background: var(--ih-cartao); border-top: 6px solid var(--ih-destaque); border-radius: var(--ih-raio-xg); box-shadow: var(--ih-sombra-cartao); padding: 16px 20px 18px; width: min(1100px, 100%); }
+.ih-caixa h2 { margin: 0 0 10px; font-size: 1.05em; color: var(--ih-base); }
+.ih-balao {
+    width: min(400px, calc(100vw - 16px)); background: #fff; border-top: 4px solid var(--ih-destaque); border-radius: var(--ih-raio-g);
+    padding: 10px 14px; box-shadow: var(--ih-sombra-balao); font-size: 0.86em; line-height: 1.45; color: var(--ih-texto);
+}
+.ih-balao strong { display: block; color: var(--ih-base); font-size: 1.05em; }
+.ih-glos { cursor: help; text-decoration: underline dotted #b9a4a8; text-underline-offset: 3px; }
+
+/* ---- 12. Tela de login (cartão central sobre gradiente escuro) ---- */
+.ih-login {
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;
+    /* troque o fundo.svg pelo do SEU sistema: os ícones devem remeter à funcionalidade dele */
+    background: url('fundo.svg') center / cover no-repeat, linear-gradient(135deg, var(--ih-base-esc) 0%, var(--ih-base) 45%, var(--ih-base-claro) 100%);
+}
+.ih-login-cartao { background: #fff; border-top: 6px solid var(--ih-destaque); border-radius: var(--ih-raio-xg); box-shadow: var(--ih-sombra-cartao); padding: 26px 30px 22px; width: 360px; max-width: 100%; text-align: center; }
+.ih-login-logo { width: 112px; height: 107px; object-fit: contain; display: block; margin: 0 auto 8px; }
+.ih-login-nome { margin: 0 0 6px; color: var(--ih-base); font-size: 1.2em; font-weight: 700; letter-spacing: 0.2px; }
+.ih-login-aviso { color: var(--ih-suave); font-size: 0.9em; margin: 0 0 14px; }
+.ih-login-cartao form { text-align: left; }
+.ih-login-cartao .ih-btn { width: 100%; margin-top: 18px; padding: 10px; font-size: 1em; }
+.ih-login-rodape { color: rgba(255, 255, 255, 0.6); font-size: 0.78em; margin-top: 18px; text-align: center; }
+
+/* ---- 13. Telas pequenas ---- */
+@media (max-width: 860px) {
+    .ih-pagina { grid-template-columns: 1fr; }
+    .ih-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ih-topo { padding: 10px 14px; }
+    .ih-abas { padding: 8px 10px 0; }
+    .ih-abas button { padding: 8px 10px; font-size: 0.85em; }
+}

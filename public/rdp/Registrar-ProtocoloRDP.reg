@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+; Protocolo infrahub-rdp:// (usuario atual). Requer o handler em C:\ProgramData\InfraHub\infrahub-rdp-handler.ps1
+; A URL vai como argumento do script ("%1"), nunca dentro de um -Command (evita injecao de codigo).
+
+[HKEY_CURRENT_USER\Software\Classes\infrahub-rdp]
+@="URL:InfraHub RDP"
+"URL Protocol"=""
+
+[HKEY_CURRENT_USER\Software\Classes\infrahub-rdp\shell]
+
+[HKEY_CURRENT_USER\Software\Classes\infrahub-rdp\shell\open]
+
+[HKEY_CURRENT_USER\Software\Classes\infrahub-rdp\shell\open\command]
+@="powershell.exe -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File \"C:\\ProgramData\\InfraHub\\infrahub-rdp-handler.ps1\" \"%1\""
